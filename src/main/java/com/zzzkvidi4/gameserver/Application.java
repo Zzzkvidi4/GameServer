@@ -1,4 +1,4 @@
-package com.zzzkvidi4.game_server;
+package com.zzzkvidi4.gameserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
