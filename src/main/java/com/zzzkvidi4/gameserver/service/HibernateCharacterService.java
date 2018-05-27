@@ -2,6 +2,7 @@ package com.zzzkvidi4.gameserver.service;
 
 import com.zzzkvidi4.gameserver.DBHelper;
 import com.zzzkvidi4.gameserver.model.GameCharacter;
+import com.zzzkvidi4.gameserver.response.Error;
 import com.zzzkvidi4.gameserver.validator.Validator;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -56,8 +57,13 @@ public class HibernateCharacterService implements CharacterService {
     }
 
     @Override
-    public List<String> createCharacter(int intellijence, int charysma, int strength, int leader, int success) {
-        List<String> errors = Validator.validateCharacter(intellijence, charysma, strength, leader, success);
+    public List<Error> create(GameCharacter entity) {
+        return null;
+    }
+
+    @Override
+    public List<Error> createCharacter(int intellijence, int charysma, int strength, int leader, int success) {
+        List<Error> errors = Validator.validateCharacter(intellijence, charysma, strength, leader, success);
 
         if (errors.size() != 0) {
             return errors;
@@ -77,7 +83,7 @@ public class HibernateCharacterService implements CharacterService {
                 transaction.commit();
             }
             catch (Exception e) {
-                errors.add(e.toString());
+                errors.add(new Error("database", e.toString()));
                 transaction.rollback();
             }
         }

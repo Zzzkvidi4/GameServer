@@ -2,6 +2,7 @@ package com.zzzkvidi4.gameserver.service;
 
 import com.zzzkvidi4.gameserver.DBHelper;
 import com.zzzkvidi4.gameserver.model.GameCharacterStatus;
+import com.zzzkvidi4.gameserver.response.Error;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,10 @@ public class HibernateCharacterStatusService implements CharacterStatusService {
             }
         }
         return result;
+    }
+
+    @Override
+    public List<Error> create(GameCharacterStatus entity) {
+        return null;
     }
 }

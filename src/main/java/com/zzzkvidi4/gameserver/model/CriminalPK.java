@@ -13,6 +13,15 @@ public class CriminalPK implements Serializable {
     @Column(name = "ID_Game_Character")
     private int gameCharacterId;
 
+    public CriminalPK(){
+
+    }
+
+    public CriminalPK(int id, int characterId){
+        this.id = id;
+        this.gameCharacterId = characterId;
+    }
+
     public int getId() {
         return id;
     }
